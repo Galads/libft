@@ -6,47 +6,35 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:50:49 by brice             #+#    #+#             */
-/*   Updated: 2020/10/30 10:12:28 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/02 12:53:12 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
+    int i;
 
-	i = 0;
-	while (i <= (int)len)
-	{
-		*((char *)dst + i) = *((char *)src + i);
-		i++;
-	}
-	return (dst);
-}
+    i = 0;
+    unsigned char *dst_val;
+    unsigned char *src_val;
 
-int main()
-{
+    dst_val = (unsigned char *)dst;
+    src_val = (unsigned char *)src;
 
-char dest[10]="1234567890";
-//char src[10]="XXXXXXXXXX";
-/*
-// Вывод массива src на консоль
-   printf ("src old: %s\n",dest);
-
-   // Копируем 3 байт
-   memmove(&dest[4], &src[3], 3);
-
-   // Вывод массива src на консоль
-   printf("src new: %s\n",dest);
-*/
-// Вывод массива src на консоль
-   printf ("dest old: %s\n",dest);
-
-   // Копируем 3 байт
-   memmove(&dest[4], &dest[3], 3);
-
-   // Вывод массива src на консоль
-   printf("dest new: %s\n",dest);
+    if (dst_val == src_val)
+        return (dst_val);
+    if (dst_val > src_val)
+    {
+        while (len--)
+            dst_val[len] = src_val[len];
+    } else {
+        while (i < (int)len)
+        {
+            dst_val[i] = src_val[i];
+            i++;
+        }
+    }
+    return (dst);
 }
