@@ -6,7 +6,7 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 11:07:29 by brice             #+#    #+#             */
-/*   Updated: 2020/11/02 11:58:54 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/05 07:34:42 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    if (!dst || !src)
-        return (0);
-    if (dstsize > 0)
-    {
-        while (i < dstsize - 1 && src[i])
-        {
-            *(dst + i) = *(src + i);
-            i++;
-        }
-        *(dst + i) = '\0';
-    }
-    return (ft_strlen(src));
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	if (dstsize > 0)
+	{
+		while (i < dstsize - 1 && src[i])
+		{
+			*(dst + i) = *(src + i);
+			i++;
+		}
+		*(dst + i) = '\0';
+	}
+	return (ft_strlen(src));
 }

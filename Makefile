@@ -6,7 +6,7 @@
 #    By: brice <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/02 10:41:41 by brice             #+#    #+#              #
-#    Updated: 2020/11/02 19:08:24 by brice            ###   ########.fr        #
+#    Updated: 2020/11/04 17:19:18 by brice            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,4 @@ fclean:	clean
 
 re:		fclean  all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re ${NAME}
