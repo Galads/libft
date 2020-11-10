@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 12:33:08 by brice             #+#    #+#             */
-/*   Updated: 2020/11/10 05:46:17 by brice            ###   ########.fr       */
+/*   Created: 2020/11/09 22:55:12 by brice             #+#    #+#             */
+/*   Updated: 2020/11/09 23:02:01 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    size_t i;
-	size_t k;
-	size_t l;
+	t_list *l;
 
-	i = 0;
-	k = 0;
 	l = 0;
-	while (dst[i] != '\0' && i < dstsize)
-	      i++;
-	if (dstsize <= i)
-		return (ft_strlen(src) + dstsize);
-	l = i;
-	i = ft_strlen(dst);
-	while ((i + k + 1) < dstsize  && src[k])
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		dst[l] = src[k];
-		l++;
-		k++;
+		l = lst->next;
+		f(lst->content);
+		lst = l;
 	}
-	dst[l] = '\0';
-	return (i + ft_strlen(src));
 }

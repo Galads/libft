@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 12:33:08 by brice             #+#    #+#             */
-/*   Updated: 2020/11/10 05:46:17 by brice            ###   ########.fr       */
+/*   Created: 2020/11/10 05:47:59 by brice             #+#    #+#             */
+/*   Updated: 2020/11/10 07:25:56 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_count_split(char const *s, char c)
 {
-    size_t i;
-	size_t k;
-	size_t l;
+	int	i;
+	int	count;
 
 	i = 0;
-	k = 0;
-	l = 0;
-	while (dst[i] != '\0' && i < dstsize)
-	      i++;
-	if (dstsize <= i)
-		return (ft_strlen(src) + dstsize);
-	l = i;
-	i = ft_strlen(dst);
-	while ((i + k + 1) < dstsize  && src[k])
+	count = 0;
+	while (s[i] != '\0')
 	{
-		dst[l] = src[k];
-		l++;
-		k++;
+		if (s[i] == c)
+			count++;
+		i++;
 	}
-	dst[l] = '\0';
-	return (i + ft_strlen(src));
+	return (count);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	size_t	words;
+	int		i;
+
+	words = 0;
+	i = 0;
+	words = ft_count_split(s, c);
+
+	str = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!str)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		if ()
+	}
 }
