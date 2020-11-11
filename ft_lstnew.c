@@ -6,7 +6,7 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 08:41:40 by brice             #+#    #+#             */
-/*   Updated: 2020/11/10 02:19:13 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/11 07:57:02 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_list	*ft_lstnew(void *content)
 		return (node);
 	node->content = content;
 	node->next = NULL;
-
 	return (node);
 }

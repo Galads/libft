@@ -6,7 +6,7 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 09:13:56 by brice             #+#    #+#             */
-/*   Updated: 2020/11/10 02:28:00 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/11 07:17:05 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if(!new)
+	if (!new)
 		return ;
 	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	if(*lst)
+	if (*lst)
 	{
 		new->next = *lst;
 		*lst = new;
