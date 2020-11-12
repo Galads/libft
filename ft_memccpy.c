@@ -6,13 +6,13 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:00:14 by brice             #+#    #+#             */
-/*   Updated: 2020/11/02 12:31:30 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/12 20:35:59 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src,
+void	*ft_memccpy(void *dst, const void *restrict src,
 		int c, size_t n)
 {
 	int i;

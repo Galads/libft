@@ -6,7 +6,7 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:52:57 by brice             #+#    #+#             */
-/*   Updated: 2020/11/11 06:36:31 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/12 20:34:18 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ size_t				ft_strlcat(char *dst, const char *src,
 size_t				ft_strlen(const char *str);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 int					ft_isalpha(int c);
+int					ft_isprint(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
@@ -50,6 +51,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 char				**ft_split(char const *s, char c);
 
 typedef struct		s_list

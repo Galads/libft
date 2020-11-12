@@ -6,7 +6,7 @@
 /*   By: brice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 05:47:59 by brice             #+#    #+#             */
-/*   Updated: 2020/11/11 07:13:38 by brice            ###   ########.fr       */
+/*   Updated: 2020/11/13 02:36:22 by brice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,21 @@ static	size_t	ft_count_split(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] == c)
-		{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i] != '\0')
 			count++;
-			while (s[i] == c)
-				i++;
-		}
-		i++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	if (count == 0 && s[i - 1] != c)
-		count++;
 	return (count);
 }
 
 static	void	ft_clear_arr(char **arr)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (arr[i])
@@ -48,7 +43,7 @@ static	void	ft_clear_arr(char **arr)
 
 static	size_t	ft_strlen_char(const char *str, char c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != c && str[i] != '\0')
@@ -58,13 +53,13 @@ static	size_t	ft_strlen_char(const char *str, char c)
 
 static	size_t	ft_split_words(char **str, const char *s, char c)
 {
-	size_t	j;
-	size_t	i;
-	size_t	k;
+	int j;
+	int i;
+	int k;
 
-	j = 0;
 	i = 0;
-	while (j < ft_count_split(s, c) && s[i])
+	j = 0;
+	while ((size_t)j < ft_count_split(s, c) && s[i])
 	{
 		k = 0;
 		while (s[i] == c)
@@ -73,7 +68,7 @@ static	size_t	ft_split_words(char **str, const char *s, char c)
 											(ft_strlen_char(&s[i], c) + 1))))
 		{
 			ft_clear_arr(str);
-			return (0);
+			return (-1);
 		}
 		while (s[i] != c && s[i] != '\0' && str[j] != '\0')
 		{
@@ -88,15 +83,19 @@ static	size_t	ft_split_words(char **str, const char *s, char c)
 char			**ft_split(char const *s, char c)
 {
 	char	**str;
+	int		i;
 	int		j;
+	int		k;
 
+	i = 0;
 	j = 0;
+	k = 0;
 	if (!s)
 		return (NULL);
 	if (!(str = (char **)malloc(sizeof(char *) *
 											(ft_count_split(s, c) + 1))))
 		return (NULL);
-	if (!(j = ft_split_words(str, s, c)))
+	if ((j = ft_split_words(str, s, c)) < 0)
 		return (NULL);
 	str[j] = NULL;
 	return (str);
